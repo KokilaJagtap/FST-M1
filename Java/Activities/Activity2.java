@@ -1,42 +1,39 @@
-package fstday1;
+package FST_JAVA_Activity;
+
+import java.util.Arrays;
 
 public class Activity2 {
 
 	public static void main(String[] args) {
-		
-		int a[]= {10, 77, 10, 54, -11, 10, 77, 54};
-		
-		//Element to find in the array
-		int find_element=54;
-		
-		//Maximum sum allowed
-//		int fixedsum=30;
-		
-		//Variable to store the sum of elements
-		int temp_sum=0;
-		
-		//Boolean flag to track whether the target element is found
-		boolean found = false;
-		
-		for (int number : a) 
-		{
-            //Check if the current element is equal to the target element
-            if (number == find_element)
-            {
-                //Add them which is repeated 
-              temp_sum += find_element;
-              found = true;
-              
+		//Initialize the array
+        int[] numArr = {10, 77, 10, 54, -11, 10};
+        System.out.println("Original Array: " + Arrays.toString(numArr));
+        
+        //Set constants
+        int searchNum = 10;
+        int fixedSum = 30;
+
+        //Print result
+        System.out.println("Result: " + result(numArr, searchNum, fixedSum));
+    }
+
+    public static boolean result(int[] numbers, int searchNum, int fixedSum) {
+        int temp_sum = 0;
+        //Loop through array
+        for (int number : numbers) {
+            //If value is 10
+            if (number == searchNum) {
+                //Add them
+                temp_sum += searchNum;
             }
 
-/*        if (temp_sum > fixedsum)
-            {
-            	break;
+            //Sum should not be more than 30
+            if (temp_sum > fixedSum) {
+                break;
             }
-*/        }
+        }
 
-        System.out.println(temp_sum);
-    }	
-	
+        //Return true if condition satisfies
+        return temp_sum == fixedSum;
+    }
 }
-
